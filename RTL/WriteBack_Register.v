@@ -10,7 +10,7 @@ module WriteBack_Register (
 
 always @(posedge clk or negedge rst)
     begin
-        if(!rst)
+        if(!rst)                            //重置
             begin
                 regWriteW      <=      1'b0;
                 memToRegW      <=      1'b0;
@@ -18,7 +18,7 @@ always @(posedge clk or negedge rst)
                 aluOutW        <=      32'b0;
                 writeRegW      <=      5'b0;
             end
-        else
+        else                                //设置数据寄存器
             begin
                 regWriteW      <=      regWriteM;
                 memToRegW      <=      memToRegM;

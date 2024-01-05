@@ -10,7 +10,7 @@ module Memory_Register (
 
 always @(posedge clk or negedge rst)
     begin
-        if (!rst)
+        if (!rst)                       //重置
             begin
                 regWriteM    <=    1'b0; 
                 memToRegM    <=    1'b0;
@@ -20,7 +20,7 @@ always @(posedge clk or negedge rst)
                 writeRegM    <=    5'b0;
             end
         else
-            begin
+            begin                       //写入地址信息
                 regWriteM    <=   regWriteE; 
                 memToRegM    <=   memToRegE;
                 memWriteM    <=   memWriteE;

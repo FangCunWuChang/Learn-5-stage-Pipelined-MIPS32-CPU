@@ -3,13 +3,13 @@ module dataMemory #(
     parameter ADDRESS_WIDTH = 32,  
     parameter DEPTH         = 128 //NUMBER_OF_ENTRIES
 ) (
-    output wire [DATA_WIDTH-1:0]    readData, 
+    output wire [DATA_WIDTH-1:0]    readData,       //读出的数据
     output wire [DATA_WIDTH-1:0]    testData,    // For Testing Purposes 
-    input  wire [DATA_WIDTH-1:0]    writeData, 
-    input  wire [ADDRESS_WIDTH-1:0] addr, 
-    input  wire                     writeEnable,
-    input  wire                     clk, 
-    input  wire                     reset
+    input  wire [DATA_WIDTH-1:0]    writeData,      //写入的数据
+    input  wire [ADDRESS_WIDTH-1:0] addr,           //地址
+    input  wire                     writeEnable,    //写入使能
+    input  wire                     clk,            //时钟
+    input  wire                     reset           //重置
 );
 integer i;
 

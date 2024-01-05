@@ -1,7 +1,7 @@
 module ALU_Decoder (
-    input   wire    [1:0]      aluOp,
-    input   wire    [5:0]      func,
-    output  reg     [1:0]      aluController
+    input   wire    [1:0]      aluOp,               //ALU指令类型
+    input   wire    [5:0]      func,                //运算类型
+    output  reg     [1:0]      aluController        //ALU控制信号
 );
 
 localparam   add = 6'b10_0000,

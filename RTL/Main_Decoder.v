@@ -6,12 +6,12 @@ module Main_Decoder (
 
 reg     [8:0]     flags;  
 
-localparam loadWord        = 6'b10_0011,
-           storeWord       = 6'b10_1011,
-           rType           = 6'b00_0000,
-           addImmediate    = 6'b00_1000,
-           branchIfEqual   = 6'b00_0100,
-           jump_inst       = 6'b00_0010; 
+localparam loadWord        = 6'b10_0011,        //LW
+           storeWord       = 6'b10_1011,        //SW
+           rType           = 6'b00_0000,        //ALU OPs
+           addImmediate    = 6'b00_1000,        //ADDI
+           branchIfEqual   = 6'b00_0100,        //BEQ
+           jump_inst       = 6'b00_0010;        //J
 
 always @(*)
     begin

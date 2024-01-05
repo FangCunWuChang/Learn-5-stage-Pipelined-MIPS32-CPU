@@ -31,7 +31,7 @@ module Execute_Register (
 
 always @ (posedge clk or negedge reset)
     begin 
-        if (clear | !reset)
+        if (clear | !reset)         //重置
             begin
                 regWriteE   <=  1'b0;
                 memToRegE   <=  1'b0;
@@ -46,7 +46,7 @@ always @ (posedge clk or negedge reset)
                 rdE         <=  5'b0;
                 signImmE    <=  32'b0;
             end
-        else
+        else                        //写入指令与寄存器
             begin
                 regWriteE   <=  regWriteD;
                 memToRegE   <=  memToRegD;

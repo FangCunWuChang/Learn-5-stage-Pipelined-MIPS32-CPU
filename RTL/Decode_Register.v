@@ -6,17 +6,17 @@ module Decode_Register (
 
 always @(posedge clk or negedge rst)
         begin
-            if(!rst)
+            if(!rst)                        //重置
                 begin
                     instrD   <=    32'b0;
                     pcPlus4D <=    32'b0;
                 end
-            else if (clear & !en)
+            else if (clear & !en)           //清除指令寄存器和PC寄存器
                 begin
                     instrD   <=    32'b0;
                     pcPlus4D <=    32'b0;
                 end
-            else if(!en)
+            else if(!en)                    //读取指令
                 begin
                     instrD   <=    rd;
                     pcPlus4D <=    pcPlus4F;

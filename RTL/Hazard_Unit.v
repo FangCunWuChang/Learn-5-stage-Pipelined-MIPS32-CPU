@@ -9,13 +9,13 @@ module Hazard_Unit (
 wire  lwStall;
 wire  branshStall;
 
-assign  lwStall      = (((rsD == rtE) | (rtD == rtE)) & memToRegE);
-assign  branshStall  = ((branchD & regWriteE & ((writeRegE == rsD) | (writeRegE == rtD))) | (branchD & memToRegM & ((writeRegM == rsD) | (writeRegM == rtD))));
+assign  lwStall      = (((rsD == rtE) | (rtD == rtE)) & memToRegE);     //执行数据与译码数据相关
+assign  branshStall  = ((branchD & regWriteE & ((writeRegE == rsD) | (writeRegE == rtD))) | (branchD & memToRegM & ((writeRegM == rsD) | (writeRegM == rtD)))); //执行数据与译码数据或访存数据与译码数据相关
 assign  stallF       = (lwStall | branshStall);
 assign  stallD       = (lwStall | branshStall);
 assign  flushE       = (lwStall | branshStall | jumpD);
-assign  forwardAD    = ((rsD != 0) & (rsD == writeRegM) & regWriteM);
-assign  forwardBD    = ((rtD != 0) & (rtD == writeRegM) & regWriteM);
+assign  forwardAD    = ((rsD != 0) & (rsD == writeRegM) & regWriteM);   //访存数据与译码数据相关
+assign  forwardBD    = ((rtD != 0) & (rtD == writeRegM) & regWriteM);   //访存数据与译码数据相关
 
 always @(*)
     begin
