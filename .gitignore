@@ -1,0 +1,12 @@
+Learn-CPU.cache/**
+Learn-CPU.hw/**
+Learn-CPU.ip_user_files/**
+Learn-CPU.runs/**
+Learn-CPU.sim/**
+
+.Xil/**
+vivado.jou
+vivado.log
+vivado_*.backup.jou
+vivado_*.backup.log
+vivado_pid*.str

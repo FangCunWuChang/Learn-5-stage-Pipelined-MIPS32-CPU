@@ -11,7 +11,7 @@ reg [DATA_WIDTH-1:0] iMem [0:DEPTH-1];
 
 initial 
     begin
-        $readmemh("Program 1_Machine Code.txt", iMem);
+        $readmemh("../../../../RTL/Program 1_Machine Code.txt", iMem);
     end
 
 assign instruct = iMem [pcNew>>2]; //Div by 4

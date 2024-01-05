@@ -25,8 +25,6 @@ wire    [4:0]    rdE, rsE, rtE;
 wire             memToRegW, memWriteM;
 wire    [31:0]   readDataM, readDataW, aluOutW;
 
-
-
 MUX #(32) U1_MUX (
     .out(pcMux1Out),
     .in1(pcBranchD),
