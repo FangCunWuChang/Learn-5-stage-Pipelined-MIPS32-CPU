@@ -1,7 +1,7 @@
 module Datapath (
     input      wire               clearD, jump, pcSrcD, 
     input      wire               memWrite, regWrite, regDest, aluSrc, memtoReg, 
-    input      wire    [1:0]      aluController,
+    input      wire    [3:0]      aluController,
     input      wire               stallD, stallF, flushE,       //指令读取使能，PC使能，执行使能
     input      wire               forwardAD, forwardBD,
     input      wire    [1:0]      forwardAE, forwardBE,
@@ -19,7 +19,7 @@ wire    [31:0]   instrD, resultW, aluOutMOut, aluOutMIn, aluOutM, writeDataM;
 wire    [4:0]    writeRegWIn, writeRegMIn, writeRegM, rdD;
 wire    [31:0]   rd1D, rd2D, signImmD, signImmE;
 wire             memWriteE, aluSrcE, regDstE;
-wire    [1:0]    aluControlE;
+wire    [3:0]    aluControlE;
 wire    [31:0]   rd1E, rd2E, writeDataE, aluOutE;
 wire    [4:0]    rdE, rsE, rtE;
 wire             memToRegW, memWriteM;

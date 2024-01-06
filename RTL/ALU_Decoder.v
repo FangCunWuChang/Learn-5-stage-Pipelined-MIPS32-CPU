@@ -1,7 +1,7 @@
 module ALU_Decoder (
-    input   wire    [1:0]      aluOp,               //ALU指令类型
+    input   wire    [3:0]      aluOp,               //ALU指令类型
     input   wire    [5:0]      func,                //运算类型
-    output  reg     [1:0]      aluController        //ALU控制信号
+    output  reg     [3:0]      aluController        //ALU控制信号
 );
 
 localparam   add = 6'b10_0000,
@@ -12,18 +12,18 @@ localparam   add = 6'b10_0000,
 always @(*)
     begin
         case (aluOp)
-            2'b00   :    aluController = 2'b00;
-            2'b01   :    aluController = 2'b01;
-            2'b10   :    begin
+            4'b0000   :    aluController = 4'b0000;
+            4'b0001   :    aluController = 4'b0001;
+            4'b0010   :    begin
                             case (func)
-                                add     :   aluController = 2'b00;
-                                sub     :   aluController = 2'b01;
-                                slt     :   aluController = 2'b11;
-                                mul     :   aluController = 2'b10;
-                                default :   aluController = 2'b00;
+                                add     :   aluController = 4'b0000;
+                                sub     :   aluController = 4'b0001;
+                                slt     :   aluController = 4'b0011;
+                                mul     :   aluController = 4'b0010;
+                                default :   aluController = 4'b0000;
                             endcase
                          end 
-            default :   aluController = 2'b00;
+            default :   aluController = 4'b0000;
         endcase
     end
 endmodule

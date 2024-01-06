@@ -1,16 +1,16 @@
 module ALU #(
     parameter DATA_WIDTH = 32,
-    parameter OP_WIDTH   = 2
+    parameter OP_WIDTH   = 4
 ) (
     output reg   [DATA_WIDTH-1:0]  aluOut,          //运算结果
     input  wire  [OP_WIDTH-1:0]    aluFunc,         //ALU控制信号
     input  wire  [DATA_WIDTH-1:0]  A, B             //操作数
 );
 
-localparam ADD   =  2'b00;
-localparam SUB   =  2'b01;
-localparam MUL   =  2'b10;
-localparam SLT   =  2'b11;
+localparam ADD   =  4'b0000;
+localparam SUB   =  4'b0001;
+localparam MUL   =  4'b0010;
+localparam SLT   =  4'b0011;
 
 always @ (*)
     begin 

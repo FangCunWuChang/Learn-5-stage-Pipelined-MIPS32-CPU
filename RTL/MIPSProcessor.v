@@ -5,7 +5,7 @@ module MIPSProcessor (
 
 wire               clearD, jump, pcSrcD, branch;
 wire               memWrite, regWrite, regDest, aluSrc, memtoReg;
-wire    [1:0]      aluController;
+wire    [3:0]      aluController;
 wire               stallD, stallF, flushE;
 wire               forwardAD, forwardBD;
 wire    [1:0]      forwardAE, forwardBE;

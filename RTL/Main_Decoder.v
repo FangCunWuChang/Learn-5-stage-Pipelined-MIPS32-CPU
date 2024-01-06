@@ -1,10 +1,10 @@
 module Main_Decoder (
     input    wire     [5:0]     opCode,
-    output   reg      [1:0]     aluOp,
+    output   reg      [3:0]     aluOp,
     output   reg                memWrite, regWrite, regDest, aluSrc, memtoReg, branch, jump
 );
 
-reg     [8:0]     flags;  
+reg     [10:0]     flags;  
 
 localparam loadWord        = 6'b10_0011,        //LW
            storeWord       = 6'b10_1011,        //SW
@@ -21,13 +21,13 @@ always @(*)
 always @(*)
     begin
         case (opCode)
-            loadWord      : flags = 9'b0_0001_0110;
-            storeWord     : flags = 9'b0_0010_0110;
-            rType         : flags = 9'b0_1001_1000;
-            addImmediate  : flags = 9'b0_0001_0100;
-            branchIfEqual : flags = 9'b0_0100_0001;
-            jump_inst     : flags = 9'b1_0000_0000;
-            default       : flags = 9'b0_0000_0000;
+            loadWord      : flags = 11'b000_0001_0110;
+            storeWord     : flags = 11'b000_0010_0110;
+            rType         : flags = 11'b000_1001_1000;
+            addImmediate  : flags = 11'b000_0001_0100;
+            branchIfEqual : flags = 11'b000_0100_0001;
+            jump_inst     : flags = 11'b100_0000_0000;
+            default       : flags = 11'b000_0000_0000;
         endcase
     end
 endmodule 

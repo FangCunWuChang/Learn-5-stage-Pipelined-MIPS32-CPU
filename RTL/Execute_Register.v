@@ -2,7 +2,7 @@ module Execute_Register (
     output reg              regWriteE, 
     output reg              memToRegE,
     output reg              memWriteE,
-    output reg    [1:0]     aluControlE,
+    output reg    [3:0]     aluControlE,
     output reg              aluSrcE,
     output reg              regDstE,
     output reg    [31:0]    rd1E,
@@ -14,7 +14,7 @@ module Execute_Register (
     input  wire             regWriteD,
     input  wire             memToRegD,
     input  wire             memWriteD,
-    input  wire   [1:0]     aluControlD,
+    input  wire   [3:0]     aluControlD,
     input  wire             aluSrcD,
     input  wire             regDstD,
     input  wire   [31:0]    rd1D,
@@ -36,7 +36,7 @@ always @ (posedge clk or negedge reset)
                 regWriteE   <=  1'b0;
                 memToRegE   <=  1'b0;
                 memWriteE   <=  1'b0;
-                aluControlE <=  2'b0;
+                aluControlE <=  4'b0;
                 aluSrcE     <=  1'b0;
                 regDstE     <=  1'b0;
                 rd1E        <=  32'b0;

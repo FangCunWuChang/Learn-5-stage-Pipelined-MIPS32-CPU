@@ -1,6 +1,6 @@
 module executeStage (
     input     wire              regDstE, aluSrcE,
-    input     wire  [1:0]       aluControlE,
+    input     wire  [3:0]       aluControlE,
     input     wire  [31:0]      rd1D, rd2D,
     input     wire  [4:0]       rsE, rtE, rdE,
     input     wire  [31:0]      signImmE,
@@ -51,7 +51,7 @@ MUX #(32) U4_MUX (
     .sel(aluSrcE)
 );                   //out = sel ? in1 : in2
 
-ALU #(32,2) U5_ALU (
+ALU #(32,4) U5_ALU (
     .aluOut(aluOutE),
     .aluFunc(aluControlE),
     .A(srcAE),
