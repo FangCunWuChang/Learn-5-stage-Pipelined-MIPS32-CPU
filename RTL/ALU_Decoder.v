@@ -7,7 +7,7 @@ module ALU_Decoder (
 localparam   add = 6'b10_0000,
              sub = 6'b10_0010,
              slt = 6'b10_1010,
-             mul = 6'b01_1100;
+             mul = 6'b00_0010;
 
 always @(*)
     begin
@@ -19,6 +19,11 @@ always @(*)
                                 add     :   aluController = 4'b0000;
                                 sub     :   aluController = 4'b0001;
                                 slt     :   aluController = 4'b0011;
+                                default :   aluController = 4'b0000;
+                            endcase
+                         end 
+            4'b0011   :    begin
+                            case (func)
                                 mul     :   aluController = 4'b0010;
                                 default :   aluController = 4'b0000;
                             endcase
